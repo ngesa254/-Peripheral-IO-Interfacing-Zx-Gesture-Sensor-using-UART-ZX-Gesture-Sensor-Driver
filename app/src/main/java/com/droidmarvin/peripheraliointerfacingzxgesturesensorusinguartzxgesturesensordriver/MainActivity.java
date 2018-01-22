@@ -40,6 +40,12 @@ public class MainActivity extends Activity {
                     // do something awesome
                 }
             });
+
+            // Read other sensor values
+            mZxSensor.getGestureDetector().getXpos(); // x(horizontal) position from -120 to 120
+            mZxSensor.getGestureDetector().getZpos(); // z(vertical) position from 0 to 240
+            mZxSensor.getGestureDetector().getGesture(); // last detected gesture
+
         }catch (IOException e){
             // couldn't configure the sensor...
         }
