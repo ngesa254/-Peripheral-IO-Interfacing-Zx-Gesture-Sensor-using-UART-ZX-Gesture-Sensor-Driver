@@ -26,6 +26,12 @@ public class MainActivity extends Activity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        destroyZxGesture();
+    }
+
     // Access the Gesture sensor and listen for gesture event
     private void mmZxGestureSetup(){
 
@@ -43,7 +49,7 @@ public class MainActivity extends Activity {
     }
 
     // Close the sensor when finished
-    private void destroyOledDisplay() {
+    private void destroyZxGesture() {
         if (mZxSensor != null) {
             try {
                 mZxSensor.close();
