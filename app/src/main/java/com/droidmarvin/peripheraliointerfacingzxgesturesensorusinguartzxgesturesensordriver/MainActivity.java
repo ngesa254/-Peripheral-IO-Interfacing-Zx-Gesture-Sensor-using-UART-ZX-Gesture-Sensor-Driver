@@ -3,6 +3,7 @@ package com.droidmarvin.peripheraliointerfacingzxgesturesensorusinguartzxgesture
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import com.google.android.things.contrib.driver.zxgesturesensor.ZXGestureSensor;
 
@@ -39,8 +40,19 @@ public class MainActivity extends Activity {
         }catch (IOException e){
             // couldn't configure the sensor...
         }
+    }
 
-
+    // Close the sensor when finished
+    private void destroyOledDisplay() {
+        if (mZxSensor != null) {
+            try {
+                mZxSensor.close();
+            } catch (IOException e) {
+                Log.e(TAG, "Error closing ZXGestureSensor", e);
+            } finally {
+                mZxSensor = null;
+            }
+        }
     }
 
 
