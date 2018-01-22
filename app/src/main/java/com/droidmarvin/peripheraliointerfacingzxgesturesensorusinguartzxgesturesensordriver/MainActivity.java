@@ -20,10 +20,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
-
+        mZxGestureSetup();
     }
 
     @Override
@@ -33,7 +30,7 @@ public class MainActivity extends Activity {
     }
 
     // Access the Gesture sensor and listen for gesture event
-    private void mmZxGestureSetup(){
+    private void mZxGestureSetup(){
 
         try {
             mZxSensor = ZXGestureSensor.getUartSensor(ZX_GESTURE_SENSOR, new Handler());
